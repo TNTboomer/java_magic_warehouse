@@ -6,10 +6,10 @@ public class ballgame3 extends JFrame {
 
     double x=100;
     double y=100;
-    double degree=3.14/3; //arch
-    //画窗口
+    double degree=3.14/3; //radian is 60掳
+    //window drawing
     public void paint(Graphics g) {
-        System.out.println("画窗口");
+        System.out.println("Draw the window");
         g.drawImage(desk, 0, 0, null);
         g.drawImage(ball, (int) x, (int) y, null);
 
@@ -21,7 +21,7 @@ public class ballgame3 extends JFrame {
         }
 
     }
-    //窗口加载
+    //window loading
     void launchFrame() {
         setSize(856, 500);
         setLocation(50, 50);
@@ -30,7 +30,7 @@ public class ballgame3 extends JFrame {
         while (true){
             repaint();
             try{
-                Thread.sleep(16);//1秒60次（约）
+                Thread.sleep(16);//window will be redraw about per 16 ms, 1000ms/16ms is 62.5 FPS.
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -38,7 +38,7 @@ public class ballgame3 extends JFrame {
     }
 
     public static void main(String[] args) {
-        System.out.println("小球游戏");
+        System.out.println("Ballgame");
         ballgame3 game = new ballgame3();
         game.launchFrame();
     }
